@@ -1,0 +1,52 @@
+#
+# Himax Touchscreen driver configuration
+#
+config TOUCHSCREEN_HIMAX_CHIPSET_O22
+    tristate "HIMAX chipset touchscreen"
+    default m
+    depends on SPI
+    help
+        Say Y here if you have a Himax CHIPSET touch panel
+        If unsure, say N.
+
+config TOUCHSCREEN_HIMAX_IC_HX83112
+    bool "HIMAX chipset HX83112 function"
+    depends on TOUCHSCREEN_HIMAX_CHIPSET_O22
+    help
+        This enables support for HIMAX CHIPSET of HX83112.
+
+config TOUCHSCREEN_HIMAX_COMMON
+        bool "HIMAX common function"
+        depends on TOUCHSCREEN_HIMAX_CHIPSET_O22
+        help
+        This enables support for HIMAX COMMON touchscreens.
+
+config TOUCHSCREEN_HIMAX_SEC
+        bool "HIMAX sec function"
+        depends on TOUCHSCREEN_HIMAX_CHIPSET_O22
+        help
+        This enables support for HIMAX sec touchscreens.
+
+config TOUCHSCREEN_HIMAX_INCELL
+        bool "HIMAX chipset in-cell function"
+        depends on TOUCHSCREEN_HIMAX_CHIPSET_O22
+        help
+        This enables support for HIMAX CHIPSET of in-cell function.
+
+config TOUCHSCREEN_HIMAX_DEBUG
+        bool "HIMAX debug function"
+        depends on TOUCHSCREEN_HIMAX_CHIPSET_O22
+        help
+        This enables support for HIMAX debug function.
+
+config TOUCHSCREEN_HIMAX_INSPECT
+        bool "HIMAX inspect function"
+        depends on TOUCHSCREEN_HIMAX_CHIPSET_O22
+        help
+        This enables support for HIMAX inspect function.
+
+config TOUCHSCREEN_HIMAX_EMBEDDED_FIRMWARE
+        bool "HIMAX embedded firmware function"
+        depends on TOUCHSCREEN_HIMAX_CHIPSET_O22
+        help
+        This enables support for HIMAX embedded firmware function.

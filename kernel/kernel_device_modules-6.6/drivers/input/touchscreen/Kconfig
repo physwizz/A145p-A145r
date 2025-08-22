@@ -1,0 +1,75 @@
+# SPDX-License-Identifier: GPL-2.0-only
+#
+# Touchscreen driver configuration
+#
+
+if INPUT_TOUCHSCREEN
+
+config TOUCHSCREEN_MTK_TOUCH
+       string "Touch IC name for Mediatek package"
+       help
+         Set touch IC name if you have touch panel.
+
+         To compile this dirver for used touch IC.
+
+config TOUCHSCREEN_MT6985_ALPHA_SUPPORT
+       tristate "Specify Alpha Touch Platform is mt6985"
+       help
+         Select Alpha Touch Platform is mt6985.
+         To compile this dirver for used touch IC.
+         Set Y or M to select this feature for specific platform-mt6985,
+         and set N to disable.
+
+config TOUCHSCREEN_ILITEK_TOUCH
+       tristate "ILITEK TOUCHSCREEN"
+       help
+         Set Y or M to select this feature for touch compile,
+         and set N to disable.
+
+config TOUCHSCREEN_BOTAI_MULTI_TOUCH
+       tristate "GT9XX MULTIPLE TOUCHSCREEN"
+       help
+         Set Y or M to select this feature for touch compile,
+         and set N to disable.for BoTai touch feature.
+
+config TOUCHSCREEN_GT9XX
+       tristate "GT9XX TOUCHSCREEN FOR CAR SERDES TOUCH"
+       help
+         Set Y or M to select this feature for touch compile,
+         and set N to disable.for car serdes touch feature.
+
+config TOUCHSCREEN_FOCALTECH_TOUCH
+       tristate "FOCALTECH TOUCHSCREEN"
+       help
+         Set Y or M to select this feature for touch compile,
+         and set N to disable.for car serdes touch feature.
+
+source "$(KCONFIG_EXT_PREFIX)drivers/input/touchscreen/BoTai_Multi_Touch/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/input/touchscreen/GT9966/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/input/touchscreen/gt9xx/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/input/touchscreen/ILITEK/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/input/touchscreen/synaptics_dsx_96789/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/input/touchscreen/synaptics_dsx_96851/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/input/touchscreen/NT36532/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/input/touchscreen/gt9895_brl/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/input/touchscreen/synaptics_tcm2_sec/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/input/touchscreen/GT6936/Kconfig"
+# a06 code for SR-AL7160V-01-62 by wenghailong at 20240826 start
+if HQ_PROJECT_O8
+source "$(KCONFIG_EXT_PREFIX)drivers/input/touchscreen/O8/touch_common/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/input/touchscreen/O8/focaltech_touch_ft8057p/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/input/touchscreen/O8/hxchipset_hx83108b/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/input/touchscreen/O8/galaxycore/Kconfig"
+endif#HQ_PROJECT_O8
+# a06 code for SR-AL7160V-01-62 by wenghailong at 20240826 end
+# o22 code for SR-AL6528V-01-137 by wanglei at 20240901 start
+if HQ_PROJECT_O22
+source "$(KCONFIG_EXT_PREFIX)drivers/input/touchscreen/O22/touch_common/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/input/touchscreen/O22/omnivision_tcm/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/input/touchscreen/O22/hxchipset/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/input/touchscreen/O22/jdchipset/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/input/touchscreen/O22/chipone-tddi/Kconfig"
+endif#HQ_PROJECT_O22
+# o22 code for SR-AL6528V-01-137 by wanglei at 20240901 end
+endif
+

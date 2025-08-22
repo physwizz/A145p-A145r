@@ -1,0 +1,33 @@
+#
+# Himax Touchscreen driver configuration
+#
+
+config TOUCHSCREEN_HX83108B_CHIPSET_O8
+    tristate "For HX83108B_CHIPSET TOUCH"
+    default m
+    depends on SPI
+    help
+        Say Y here if you have a Himax CHIPSET touchscreen.
+        HIMAX controllers are multi touch controllers which can
+        report 10 touches at a time.
+        If unsure, say N.
+
+config TOUCHSCREEN_HIMAX_IC_HX83108A_O8
+    bool "HIMAX chipset HX83108A function"
+    depends on TOUCHSCREEN_HX83108B_CHIPSET_O8
+    help
+        This enables support for HIMAX CHIPSET of HX83108A.
+
+config TOUCHSCREEN_HIMAX_DEBUG_O8
+    bool "HIMAX debug function"
+    depends on TOUCHSCREEN_HX83108B_CHIPSET_O8
+    help
+        This enables support for HIMAX debug function.
+
+config TOUCHSCREEN_HIMAX_INSPECT_O8
+    bool "HIMAX inspect function"
+    depends on TOUCHSCREEN_HX83108B_CHIPSET_O8
+    help
+        This enables support for HIMAX inspect function.
+
+

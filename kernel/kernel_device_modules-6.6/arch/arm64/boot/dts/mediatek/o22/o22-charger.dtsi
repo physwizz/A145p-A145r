@@ -1,0 +1,193 @@
+/* AL6528A code for SR-AL6528A-01-307 by wenyaqi at 2022/08/30 start */
+#include <dt-bindings/phy/phy.h>
+#include <dt-bindings/iio/mt635x-auxadc.h>
+/*A14V code for P250108-07220 by chenyulin at 20250117 start*/
+#include "../bat_setting/mt6768_battery_prop_o22.dtsi"
+/*A14V code for P250108-07220 by chenyulin at 20250117 end*/
+&i2c7 {
+    sgm41513 {
+        status = "okay";
+        compatible = "sgm,sgm41513";
+        reg = <0x1A>;
+
+        interrupt-parent = <&pio>;
+        interrupts = <20 IRQ_TYPE_EDGE_FALLING>;
+        sgm,irq-gpio = <&pio 20 0x0>;
+        input-current-limit-microamp = <2400000>;
+        phys = <&u2port0 PHY_TYPE_USB2>;
+        phy-names = "usb2-phy";
+        usb = <&usb>;
+    };
+
+    /*A14 code for SR-AL6528V-01-119 by gaoxugang at 20240906 start*/
+    sc8960x: sc8960x@6B {
+        compatible = "southchip,sc89601d";
+        reg = <0x6B>;
+        status = "okay";
+
+        interrupt-parent = <&pio>;
+        interrupts = <20 IRQ_TYPE_EDGE_FALLING 123 0>;
+        sc8960x,intr-gpio = <&pio 20 0x0>; /* GPIO */
+        sc,intr_gpio_num = <20>;
+        sc8960x,charger_name = "primary_chg";
+
+        sc8960x,pfm-dis = <0>; /*0: enable, 1: disable*/
+        sc8960x,vsys-min = <5>; /*0: 2.6V, 1: 2.8V, 2: 3.0V,
+                    3: 3.2V, 4: 3.4V, 5: 3.5V, 6:3.6V, 7: 3.7V*/
+        sc8960x,vbat-low-otg = <0>; /*0: 2.8V, 1: 2.5V*/
+        sc8960x,ipre-chg = <2>; /*60 + val * 60, unit:mA*/
+        sc8960x,itermination = <2>; /*60 + val * 60, unit:mA*/
+        sc8960x,vbat-volt = <44>; /*3848 + val * 8, unit:mV*/
+        sc8960x,top-off-timer = <0>; /*0: dis, 1: 15min, 2: 20min 3: 45min*/
+        sc8960x,vrechg-volt = <0>; /*0: 100mV, 1: 200mV*/
+        sc8960x,en-termination = <1>; /*0: disable, 1: enable*/
+        sc8960x,wdt-timer = <0>; /*0: disable, 1: 40s, 2: 80s, 3：160s*/
+        sc8960x,en-chg-saft-timer = <1>; /*0: disable, 1: enable*/
+        sc8960x,charge-timer = <1>; /*0: 5hrs, 1: 10hrs*/
+        sc8960x,vac-ovp = <3>; /*0: 5.8V, 1: 6.4V, 2: 11V, 3: 14.2V*/
+        sc8960x,iboost = <1>; /*0: 0.5A, 1: 1.2A*/
+        sc8960x,vboost = <12>; /*3900 + val * 100, unit:mV*/
+        sc8960x,vindpm-track = <0>; /*0: disable, 1:200mV, 2:250mV, 3:300mV*/
+        sc8960x,vindpm-int-mask = <1>; /*0: not mask, 1: mask*/
+        sc8960x,iindpm-int-mask = <1>; /*0: not mask, 1: mask*/
+        sc8960x,vpre-to-cc = <0>; /*0: 3V, 1: 2.8V*/
+        sc8960x,auto-dpdm-en = <1>; /*0: disale, 1: enable*/
+        sc8960x,ntc-pin-dis = <1>; /*0: enable, 1: disable*/
+        phys = <&u2port0 PHY_TYPE_USB2>;
+        phy-names = "usb2-phy";
+        usb = <&usb>;
+    };
+    /*A14 code for SR-AL6528V-01-119 by gaoxugang at 20240906 end*/
+
+    /*A14 code for SR-AL6528V-01-115 by gaoxugang at 20240911 start*/
+    upm6910@66 {
+        compatible = "upm,upm6910dh";
+        reg = <0x66>;
+        status = "okay";
+
+        interrupt-parent = <&pio>;
+        interrupts = <20 IRQ_TYPE_EDGE_FALLING>;
+        charger_name = "primary_chg";
+        upm6910x,intr_gpio = <&pio 20 0x0>; /* GPIO */
+        upm6910x,intr_gpio_num  = <20>;
+        phys = <&u2port0 PHY_TYPE_USB2>;
+        phy-names = "usb2-phy";
+        usb = <&usb>;
+    };
+    /*A14 code for SR-AL6528V-01-115 by gaoxugang at 20240911 end*/
+};
+/* AL6528A code for SR-AL6528A-01-307 by wenyaqi at 2022/08/30 end */
+
+/* hs14 code for AL6528ADEU-248 by wenyaqi at 2022/10/02 start */
+&lk_charger {
+    max_charger_voltage = <10400000>;
+    ac_charger_input_current = <1500000>;
+
+    /* hs14 code for SR-AL6528A-01-323 by gaozhengwei at 2022/10/26 start */
+    /* battery temperature protection */
+    temp_t4_threshold = <50>;
+    temp_t3_threshold = <45>;
+    temp_t2_threshold = <12>;
+    temp_t1_threshold = <5>;
+    temp_t0_threshold = <0>;
+    /* hs14 code for SR-AL6528A-01-323 by gaozhengwei at 2022/10/26 end */
+};
+/* hs14 code for AL6528ADEU-248 by wenyaqi at 2022/10/02 end */
+
+/* hs14 code for SR-AL6528A-01-322 by wenyaqi at 2022/09/15 start */
+&charger {
+    io-channels = <&pmic_auxadc AUXADC_VCDT>;
+    io-channel-names = "pmic_vbus";
+    /*A14_V code for AL6528A-14 by shanxinkai at 20240926 start*/
+    max_charger_voltage = <10400000>;
+    /*A14_V code for AL6528A-14 by shanxinkai at 20240926 end*/
+    charger_voltage_drop = <700000>;
+
+    /* hs14 code for SR-AL6528A-01-323 by gaozhengwei at 2022/09/22 start */
+    /* common */
+    /* hs14_u code for AL6528AU-247 by liufurong at 2023/12/27 start */
+    battery_cv = <4380000>;
+    /* hs14_u code for AL6528AU-247 by liufurong at 2023/12/27 end */
+
+    /* charging current */
+    ac_charger_current = <2000000>;
+    ac_charger_input_current = <1550000>;
+
+    /* sw jeita */
+    enable_sw_jeita;
+    jeita_temp_above_t4_cv = <4200000>;
+    jeita_temp_t3_to_t4_cv = <4200000>;
+    /* hs14_u code for AL6528AU-247 by liufurong at 2023/12/27 start */
+    jeita_temp_t2_to_t3_cv = <4380000>;
+    jeita_temp_t1_to_t2_cv = <4380000>;
+    jeita_temp_t0_to_t1_cv = <4380000>;
+    jeita_temp_below_t0_cv = <4380000>;
+    /* hs14_u code for AL6528AU-247 by liufurong at 2023/12/27 end */
+    jeita_temp_above_t4_cur = <0>;
+    jeita_temp_t3_to_t4_cur = <1750000>;
+    /* hs14 code for SR-AL6528A-01-322 by wenyaqi at 2022/09/23 start */
+    jeita_temp_t2_to_t3_cur = <2700000>;
+    /* hs14 code for SR-AL6528A-01-322 by wenyaqi at 2022/09/23 end */
+    jeita_temp_t1_to_t2_cur = <1500000>;
+    jeita_temp_t0_to_t1_cur = <500000>;
+    jeita_temp_below_t0_cur = <0>;
+    temp_t4_thres = <50>;
+    temp_t4_thres_minus_x_degree = <48>;
+    temp_t3_thres = <45>;
+    temp_t3_thres_minus_x_degree = <43>;
+    temp_t2_thres = <12>;
+    temp_t2_thres_plus_x_degree = <14>;
+    temp_t1_thres = <5>;
+    temp_t1_thres_plus_x_degree = <7>;
+    temp_t0_thres = <0>;
+    /*A14 code for SR-AL6528V-01-26 by zhangziyi at 20240929 start*/
+    /* hs14 code for  SR-AL6528A-01-338 by chengyuanhang at 2022/10/03 start */
+    gxy-batt-aging-enable;
+    /* hs14_u code for AL6528AU-247 by liufurong at 2023/12/28 start */
+    gxy-cv-ranges = <0 199 4380000
+                200 249 4360000
+                250 299 4340000
+                300 1000 4320000
+                1001 9999 4270000>;
+    /* hs14_u code for AL6528AU-247 by liufurong at 2023/12/28 end */
+    /* hs14 code for SR-AL6528A-01-338 by chengyuanhang at 2022/10/03 end */
+    /*A14 code for SR-AL6528V-01-26 by zhangziyi at 20240929 end*/
+    temp_t0_thres_plus_x_degree = <2>;
+    temp_neg_10_thres = <0>;
+    /* hs14 code for SR-AL6528A-01-323 by gaozhengwei at 2022/09/22 end */
+};
+/* hs14 code for SR-AL6528A-01-322 by wenyaqi at 2022/09/15 end */
+
+/*A14 code for SR-AL6528V-01-120 by gaoxugang at 20240920 start*/
+&pdc {
+    pd_vbus_upper_bound = <10000000>;
+    pd_stop_battery_soc = <100>;
+    /* single charger */
+    sc_input_current = <1700000>;
+    sc_charger_current = <2700000>;
+    /* dual charger */
+    vbat_threshold = <4450>;
+};
+
+&odm {
+    /* AFC  Fast charging */
+    afc_charger: afc_charger {
+        compatible = "gxy,afc_charger";
+        gauge = <&mtk_gauge>;
+        status = "okay";
+
+        afc_switch_gpio_num = <6>;
+        afc_switch_gpio = <&pio 6 0x0>;
+        afc_data_gpio_num = <5>;
+        afc_data_gpio = <&pio 5 0x0>;
+
+        afc_start_battery_soc = <0>;
+        afc_stop_battery_soc = <100>;
+        afc_pre_input_current = <500000>;
+        afc_charger_input_current = <1700000>;
+        afc_charger_current = <2700000>;
+        afc_min_charger_voltage = <4600000>;
+        vbat_threshold = <4450>;
+    };
+};
+/*A14 code for SR-AL6528V-01-120 by gaoxugang at 20240920 end*/

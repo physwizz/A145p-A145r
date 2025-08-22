@@ -1,0 +1,8 @@
+&i2c0 {
+	i2c_lcd_bias_mtk_official:i2c_lcd_bias@3e {
+		compatible = "mediatek,i2c_lcd_bias";
+		reg = <0x3e>;
+		id = <0>;
+		status = "okay";
+	};
+};

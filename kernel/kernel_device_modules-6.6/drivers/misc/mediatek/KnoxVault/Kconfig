@@ -1,0 +1,6 @@
+config KNOXVAULT_POWER
+    tristate "regulate control of KnoxVault2"
+    default n
+    help
+      Say m here if you have a KnoxVault2.
+      If unsure, say N.

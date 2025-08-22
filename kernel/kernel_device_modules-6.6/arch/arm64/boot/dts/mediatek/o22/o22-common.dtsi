@@ -1,0 +1,24 @@
+/*a14 code for SR-AL6528V-01-185 by hefan at 20240827 start*/
+#include "o22_sx933x.dtsi"
+/*a14 code for SR-AL6528V-01-185 by hefan at 20240827 end*/
+/*a14 code for SR-AL6528V-01-201 by renbulang at 20240827 start*/
+#include "o22_display.dtsi"
+/*a14 code for SR-AL6528V-01-201 by renbulang at 20240827 end*/
+/*A14_V code for SR-AL6528V-01-117 by gaoxugang at 20240827 start*/
+#include "o22-battery.dtsi"
+#include "o22-usb.dtsi"
+#include "o22-charger.dtsi"
+/*A14_V code for SR-AL6528V-01-117 by gaoxugang at 20240827 end*/
+/* A14_V&&A06_V code for SR-AL6528A-01-7  by lijun at 20240826 start */
+#include "o22-nfc.dtsi"
+/* A14_V&&A06_V code for SR-AL6528A-01-7  by lijun at 20240826 end */
+/* o22 code for SR-AL6528V-01-137 by wanglei at 2024/09/01 start */
+#include "o22_touchscreen.dtsi"
+/* o22 code for SR-AL6528V-01-137 by wanglei at 2024/09/01 end */
+/* A14_V code for SR-AL6528A-01-182 by zhengchao at 20240826 start */
+#include "o22_sdcard.dtsi"
+/* A14_V code for SR-AL6528A-01-182 by zhengchao at 20240826 end */
+/* a14 code for SR-AL6528V-01-162 by duxinqi at 20240909 start */
+#include "o22_fingerprint.dtsi"
+#include "o22_prox.dtsi"
+/* a14 code for SR-AL6528V-01-162 by duxinqi at 20240909 end */

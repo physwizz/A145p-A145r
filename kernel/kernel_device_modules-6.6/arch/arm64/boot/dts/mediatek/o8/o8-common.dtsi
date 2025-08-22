@@ -1,0 +1,20 @@
+#include "o8_display.dtsi"
+/*a06 code for SR-AL7160V-01-27|SR-AL7160V-01-25 by zhawei at 20240826 start*/
+#include "o8_sensor.dtsi"
+/*a06 code for SR-AL7160V-01-27|SR-AL7160V-01-25 by zhawei at 20240826 end*/
+/*a06 code for SR-AL7160V-01-62 by wenghailong at 20240826 start*/
+#include "o8_touchscreen.dtsi"
+/*a06 code for SR-AL7160V-01-62 by wenghailong at 20240826 end*/
+/* A06_V code added for SR-AL7160A-01-06 by gaochao at 20240904 start */
+#include "o8_KnoxVault2.dtsi"
+/* A06_V  code added for SR-AL7160A-01-06 by gaochao at 20240904 end */
+/*A06_V code for SR-AL7160V-01-132 by xiongxiaoliang at 20240820 start*/
+#include "o8-charger.dtsi"
+#include "o8-usb.dtsi"
+/*A06_V code for SR-AL7160V-01-132 by xiongxiaoliang at 20240820 end*/
+/* A06_V code for SR-AL6528A-01-182 by zhengchao at 20240826 start */
+#include "o8_sdcard.dtsi"
+/* A06_V code for SR-AL6528A-01-182 by zhengchao at 20240826 end */
+/* A06_V code for SR-AL7160V-01-87 by duxinqi at 20240923 start  */
+#include "o8_fingerprint.dtsi"
+/* A06_V code for SR-AL7160V-01-87 by duxinqi at 20240923 end  */

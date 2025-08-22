@@ -1,0 +1,45 @@
+#
+# Jadard Touchscreen driver configuration
+#
+config TOUCHSCREEN_JADARD_CHIPSET_O22
+    tristate "Jadard chipset module fuction"
+    default m
+    help
+        Say Y here if you have GCORE touch panel
+        If unsure, say N.
+
+config TOUCHSCREEN_JADARD_MODULE
+    bool "Jadard chipset module fuction"
+    depends on TOUCHSCREEN_JADARD_CHIPSET_O22
+    help
+      This switch whether to compile into a kernel module.
+
+config TOUCHSCREEN_JADARD_IC_JD9522T
+    bool "Jadard chipset of JD9522T"
+    depends on TOUCHSCREEN_JADARD_CHIPSET_O22
+    help
+      This enables support for Jadard chipset of JD9522T.
+
+config JD_FB
+    bool "Jadard driver suspend/resume event by system FB"
+    depends on TOUCHSCREEN_JADARD_CHIPSET_O22
+    help
+      This enables support for Jadard driver suspend/resume event by system FB.
+
+config TOUCHSCREEN_JADARD_COMMON
+    bool "Jadard chipset common fuction"
+    depends on TOUCHSCREEN_JADARD_CHIPSET_O22
+    help
+      This enables support for Jadard chipset common function.
+
+config TOUCHSCREEN_JADARD_DEBUG
+    bool "Jadard chipset debug function"
+    depends on TOUCHSCREEN_JADARD_CHIPSET_O22
+    help
+      This enables support for Jadard chipset debug function.
+
+config TOUCHSCREEN_JADARD_SORTING
+    bool "Jadard chipset sorting function"
+    depends on TOUCHSCREEN_JADARD_CHIPSET_O22
+    help
+      This enables support for Jadard chipset sorting function.

@@ -1,0 +1,10 @@
+#
+# Common Touchscreen driver configuration
+#
+config ODM_SEC_COMMON_O22
+    tristate "For Common TOUCH"
+    default m
+    help
+        Say Y here if you have common touch panel
+
+        If unsure, say N.

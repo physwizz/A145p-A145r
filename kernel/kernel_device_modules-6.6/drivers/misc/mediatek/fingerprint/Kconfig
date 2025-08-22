@@ -1,0 +1,12 @@
+# SPDX-License-Identifier: GPL-2.0
+
+config MTK_FINGERPRINT_SUPPORT
+	tristate "MTK FINGERPRINT SUPPORT"
+	help
+	  Fingerprint config for fingerprint feature in project.
+	  Please say Y here if you want to support and sensors
+	  with mediatek fingerprint architecture.
+	  If unsure, say N.
+
+source "$(KCONFIG_EXT_PREFIX)drivers/misc/mediatek/fingerprint/fingerprint_O22/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/misc/mediatek/fingerprint/fingerprint_O8/Kconfig"
