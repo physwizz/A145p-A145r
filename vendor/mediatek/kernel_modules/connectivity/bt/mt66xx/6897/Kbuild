@@ -1,4 +1,0 @@
-BT_PLATFORM := 6897
-LOG_TAG := [BT_Drv][btif]
-
-include $(srctree)/$(src)/../btif/Kbuild

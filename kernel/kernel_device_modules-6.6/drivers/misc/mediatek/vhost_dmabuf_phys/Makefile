@@ -1,1 +1,0 @@
-obj-$(CONFIG_MTK_SPM_VHOST_DMABUF_PHYS) += dmabuf_phys_addr.o

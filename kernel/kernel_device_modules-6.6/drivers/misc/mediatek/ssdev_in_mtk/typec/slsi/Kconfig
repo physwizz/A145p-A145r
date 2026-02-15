@@ -1,3 +1,0 @@
-source "$(KCONFIG_EXT_PREFIX)drivers/misc/mediatek/ssdev_in_mtk/typec/slsi/common/Kconfig"
-source "$(KCONFIG_EXT_PREFIX)drivers/misc/mediatek/ssdev_in_mtk/typec/slsi/s2mu107/Kconfig"
-source "$(KCONFIG_EXT_PREFIX)drivers/misc/mediatek/ssdev_in_mtk/typec/slsi/s2mu106/Kconfig"

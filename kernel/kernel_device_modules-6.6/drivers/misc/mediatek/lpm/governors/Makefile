@@ -1,1 +1,0 @@
-obj-$(CONFIG_MTK_CPU_IDLE_GOV) += $(subst ",,${CONFIG_MTK_CPU_IDLE_GOV_VERSION})/

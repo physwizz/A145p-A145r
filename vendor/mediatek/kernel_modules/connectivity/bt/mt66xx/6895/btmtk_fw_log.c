@@ -1,1 +1,0 @@
-../btmtk_fw_log.c
