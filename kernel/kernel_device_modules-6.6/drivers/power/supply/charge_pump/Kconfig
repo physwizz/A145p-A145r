@@ -1,0 +1,35 @@
+config CHARGER_CP_PPS
+	tristate "charge pump pps support"
+	default n
+	help
+	  Say Y to enable support for charge pump pps
+
+config UPM6720_CP
+	tristate "UPM6720 CP"
+	depends on MTK_CHARGER
+	help
+	  Say Yes to enable
+	  UPM6720 driver.
+
+# A06_V code for SR-AL7160V-01-135|SR-AL7160V-01-136 by xiongxiaoliang at 20240902 start
+config NU2115A_CP
+	tristate "NU2115A CP"
+	depends on MTK_CHARGER
+	help
+	  Say Yes to enable
+	  NU2115A driver.
+
+config SGM41606S_CP
+	tristate "SGM41606S CP"
+	depends on MTK_CHARGER
+	help
+	  Say Yes to enable
+	  SGM41606S driver.
+
+config NX853X_CP
+	tristate "NX853X CP"
+	depends on MTK_CHARGER
+	help
+	  Say Yes to enable
+	  NX853X driver.
+# A06_V code for SR-AL7160V-01-135|SR-AL7160V-01-136 by xiongxiaoliang at 20240902 end

@@ -1,0 +1,6 @@
+/* A06_V code for SR-AL6528A-01-182 by zhengchao at 20240826 start */
+&mmc1 {
+    cd-gpios = <&pio 18 GPIO_ACTIVE_HIGH>;
+    vmmc-supply = <&mt6358_vmch_eint_low>;
+};
+/* A06_V code for SR-AL6528A-01-182 by zhengchao at 20240826 end */

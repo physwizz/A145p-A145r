@@ -1,0 +1,207 @@
+#
+# TypeC Port Controller Device Configuration
+#
+
+config TCPC_CLASS
+	tristate "TypeC Port Controller Device Class"
+	select MTK_USB_TYPEC
+	select RT_REGMAP
+	select TYPEC
+	help
+	  Say Y to enable
+	  Typec Port
+	  Controller Device
+	  Class
+
+config USB_POWER_DELIVERY
+	tristate "Support USB power delivery Function"
+	depends on TCPC_CLASS
+	default n
+	help
+	  Say Y to enable
+	  USB
+	  Power Delivery
+	  support
+
+config TCPC_RT1711H
+	tristate "Richtek RT1711H TypeC port Controller Driver"
+	depends on TCPC_CLASS
+	default n
+	help
+	  Say Y to enable
+	  Richtek RT1711H
+	  TypeC port Controller
+	  Driver
+
+config TCPC_MT6360
+	tristate "MediaTek MT6360 TypeC port Controller Driver"
+	depends on TCPC_CLASS
+	help
+	  Say Y to enable MediaTek MT6360
+	  TypeC port Controller
+	  Also Support Power Delivery
+	  Say N to disable
+
+config TCPC_MT6370
+	tristate "MediaTek MT6370 TypeC port Controller Driver"
+	depends on TCPC_CLASS
+	default n
+	help
+	  Say Y to enable MediaTek MT6370
+	  TypeC port Controller
+	  Also Support Power Delivery
+	  Say N to disable
+
+# A06_V code for SR-AL7160V-01-132 by xiongxiaoliang at 20240820 start
+config TCPC_CPS8851
+	tristate "CPS8851 TypeC port Controller Driver"
+	depends on TCPC_CLASS
+	default n
+	help
+	  Say Y to enable
+	  CPS8851
+	  TypeC port Controller
+	  Driver
+
+config TCPC_WUSB3812
+	tristate "WUSB3812 TypeC port Controller Driver"
+	depends on TCPC_CLASS
+	default n
+	help
+	  Say Y to enable
+	  CPS8851
+	  TypeC port Controller
+	  Driver
+# A06_V code for SR-AL7160V-01-132 by xiongxiaoliang at 20240820 end
+
+# A06_V code for SR-AL7160V-01-133 by yexuedong at 20240829 start
+config TCPC_UPM6922P
+	tristate "Unisemipower UPM6922P TypeC port Controller Driver"
+	depends on TCPC_CLASS
+	default n
+	help
+	  Say Y to enable
+	  Unisemipower UPM6922P
+	  TypeC port Controller
+	  Driver
+# A06_V code for SR-AL7160V-01-133 by yexuedong at 20240829 end
+
+# A06_V code for SR-AL7160V-01-135 by yexuedong at 20240827 start
+config TCPC_UPM7610
+	tristate "Unisemipower UPM7610 TypeC port Controller Driver"
+	depends on TCPC_CLASS
+	default n
+	help
+	  Say Y to enable
+	  Unisemipower UPM7610
+	  TypeC port Controller
+	  Driver
+# A06_V code for SR-AL7160V-01-135 by yexuedong at 20240827 end
+
+# A14_V code for SR-AL6528V-01-117 by gaoxugang at 20240827 start
+config TCPC_HUSB311
+    tristate "HUSB31 TypeC port Controller Driver"
+    depends on TCPC_CLASS
+    default n
+    help
+      Say Y to enable
+      HUSB311
+      TypeC port Controller
+      Driver
+
+config HUSB_REGMAP
+    tristate "regmap"
+    default n
+    help
+      Say Y to enable HUSB_REGMAP
+      information
+      Say N to disable
+# A14_V code for SR-AL6528V-01-117 by gaoxugang at 20240827 end
+
+# A14 code for SR-AL6528V-01-119 by gaoxugang at 20240903 start
+config TCPC_ET7304
+	tristate "ETEK ET7304 TypeC port Controller Driver"
+	depends on TCPC_CLASS
+	default n
+	help
+	  Say Y to enable
+	  ETEK ET7304
+	  TypeC port Controller
+	  Driver
+
+config ET_REGMAP
+	tristate "regmap"
+	default n
+	help
+	  Say Y to enable ET_REGMAP
+	  information
+	  Say N to disable
+# A14 code for SR-AL6528V-01-119 by gaoxugang at 20240903 end
+
+config TCPC_MT6375
+	tristate "Mediatek MT6375 compatible Type-C chip driver"
+	depends on TCPC_CLASS
+	depends on MFD_MT6375
+	help
+	  Say Y to enable MediaTek MT6375
+	  Mediatek MT6375 Type-C chip driver that works with
+	  Type-C Port Controller Manager to provide USB PD and USB
+	  Type-C functionalities.
+
+config TCPC_MT6379
+	tristate "Mediatek MT6379 compatible Type-C chip driver"
+	depends on TCPC_CLASS
+	depends on MFD_MT6379_I2C || MFD_MT6379_SPMI
+	help
+	  Say Y to enable MediaTek MT6375/MT6379
+	  Mediatek MT6375/MT6379 Type-C chip driver that works with
+	  Type-C Port Controller Manager to provide USB PD and USB
+	  Type-C functionalities.
+
+config USB_PD_VBUS_STABLE_TOUT
+	int "PD VBUS Stable Timeout"
+	depends on USB_POWER_DELIVERY
+	range 0 1000                       # >= 0,  <= 1000
+	default 125
+	help
+	  Setup a timeout value (ms)
+	  for
+	  VBUS change
+	  stable
+
+config PD_DBG_INFO
+	tristate "PD debug information"
+	depends on TCPC_CLASS
+	default y
+	help
+	  Say Y to enable PD debug
+	  for PD DBG
+	  information
+	  Say N to disable
+
+config MTK_TYPEC_WATER_DETECT
+	tristate "Water detection function for type-c connector"
+	depends on TCPC_CLASS
+	help
+	  Say Yes to enable water detection on type-c connector.
+	  If water is detected on the connector, it will show
+	  warning to notify end user.
+	  If unsure, say N.
+
+config MTK_TYPEC_WATER_DETECT_BY_PCB
+	tristate "Let PCB decides enabling water detection or not"
+	depends on MTK_TYPEC_WATER_DETECT
+	help
+	  Query GPIO on PCB to judge whether type-c water detection
+	  need to be enabled.
+	  Say Yes to let PCB decides enabling water detection or not.
+	  If unsure, say N.
+
+# A14 code for SR-AL6528V-01-115 by gaoxugang at 20240911 start
+if HQ_PROJECT_O22
+# source "$(KCONFIG_EXT_PREFIX)drivers/misc/mediatek/typec/tcpc/tcpc_fusb302b/Platform_Linux/
+# A14 code for SR-AL6528V-01-48 by gaoxugang at 20240929 start
+source "$(KCONFIG_EXT_PREFIX)drivers/misc/mediatek/typec/tcpc/tcpc_aw35615/Kconfig"
+# A14 code for SR-AL6528V-01-48 by gaoxugang at 20240929 end
+endif
+# A14 code for SR-AL6528V-01-115 by gaoxugang at 20240911 end

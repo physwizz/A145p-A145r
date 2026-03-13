@@ -1,0 +1,8 @@
+/* A14_V code for SR-AL6528A-01-182 by zhengchao at 20240826 start */
+&odm {
+	sdcard_det: sdcard-det-pin {
+		compatible = "mediatek,sdcard-detect-pin";
+		mediatek,sdcard-detect-pin-no = <&pio 18 0>;
+	};
+};
+/* A14_V code for SR-AL6528A-01-182 by zhengchao at 20240826 end */

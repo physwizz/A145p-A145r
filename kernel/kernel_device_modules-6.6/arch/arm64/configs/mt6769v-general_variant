@@ -1,0 +1,18 @@
+#! /usr/bin/env bash
+# edit here
+# def/undef for local target
+
+# *** WARNING: Add enable/disable configs as newline ***
+
+KERNEL_SECURITY_FEATURES="""
+# CONFIG_RODATA_FULL_DEFAULT_ENABLED is not set
+# CONFIG_ARM64_E0PD is not set
+"""
+
+a14m_00="
+${KERNEL_SECURITY_FEATURES}
+"
+
+a06_00="
+${KERNEL_SECURITY_FEATURES}
+"

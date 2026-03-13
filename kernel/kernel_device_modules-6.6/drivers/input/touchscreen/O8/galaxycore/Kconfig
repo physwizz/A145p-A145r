@@ -1,0 +1,11 @@
+#
+# GC7272 Touchscreen driver configuration
+#
+
+config TOUCHSCREEN_GALAXYCORE_IC_GC7272_O8
+    tristate "For GALAXYCORE TOUCH"
+    default m
+    help
+        Say Y here if you have GCORE touch panel
+
+        If unsure, say N.

@@ -1,0 +1,17 @@
+source "$(KCONFIG_EXT_PREFIX)drivers/misc/mediatek/sensor/1.0/situation/situation_hub/stationary/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/misc/mediatek/sensor/1.0/situation/situation_hub/inpocket/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/misc/mediatek/sensor/1.0/situation/situation_hub/wake_gesture/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/misc/mediatek/sensor/1.0/situation/situation_hub/glance_gesture/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/misc/mediatek/sensor/1.0/situation/situation_hub/answercall/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/misc/mediatek/sensor/1.0/situation/situation_hub/pickup_gesture/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/misc/mediatek/sensor/1.0/situation/situation_hub/device_orientation/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/misc/mediatek/sensor/1.0/situation/situation_hub/motion_detect/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/misc/mediatek/sensor/1.0/situation/situation_hub/tilt_detector/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/misc/mediatek/sensor/1.0/situation/situation_hub/flat/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/misc/mediatek/sensor/1.0/situation/situation_hub/sar/Kconfig"
+#a06 code for SR-AL7160V-01-44 by liuyiying at 20240830 start
+source "$(KCONFIG_EXT_PREFIX)drivers/misc/mediatek/sensor/1.0/situation/situation_hub/smart_alert/Kconfig"
+#a06 code for SR-AL7160V-01-44 by liuyiying at 20240830 end
+#a06 code for SR-AL7160V-01-43 by xiayujie at 20240906 start
+source "$(KCONFIG_EXT_PREFIX)drivers/misc/mediatek/sensor/1.0/situation/situation_hub/wakeup_motion/Kconfig"
+#a06 code for SR-AL7160V-01-43 by xiayujie at 20240906 end

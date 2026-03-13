@@ -1,0 +1,9 @@
+# SPDX-License-Identifier: GPL-2.0-only
+
+source "drivers/misc/mediatek/Kconfig"
+
+# A06_V code added for SR-AL5625-01-233 by zhengchao at 20240826 start
+source "drivers/misc/huaqin/Kconfig"
+# A06_V code added for SR-AL5625-01-233 by zhengchao at 20240826 end
+
+source "drivers/misc/drb/Kconfig"
